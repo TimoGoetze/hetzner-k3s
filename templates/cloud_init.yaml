@@ -1,17 +1,16 @@
 #cloud-config
 preserve_hostname: true
 
+resize_rootfs: false
+
 write_files:
 {{ eth1_str }}
 
 {{ growpart_str }}
 
-resize_rootfs: false
-write_files:
   - content: |
     # Any text
     path: /etc/growroot-disabled
-
 
   - path: /etc/systemd/system/ssh.socket.d/listen.conf
   content: |
